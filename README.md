@@ -9,6 +9,6 @@ From the command line this should be complete:
 ```
  git clone git@github.com:chadananda/diacritical-reflib.git
  cd diacritical-reflib
- node install
+ npm install
  node app.js
 ```
