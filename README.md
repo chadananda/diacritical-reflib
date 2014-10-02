@@ -5,9 +5,10 @@ This is a node.js project so you'll have to have node.js installed and then run 
 
 From the command line this should be complete:
 
-`
+
+```
  git clone git@github.com:chadananda/diacritical-reflib.git
  cd diacritical-reflib
  node install
  node app.js
-`
+```
