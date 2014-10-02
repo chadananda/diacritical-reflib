@@ -1,0 +1,19 @@
+{
+  "name": "diacritical-reflib",
+  "version": "0.0.1",
+  "description": "Ad hoc tool to build a correction report for the entire reference library",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chad Jones <chadananda@gmail.com> (http://bahai-education.org/)",
+  "license": "ISC",
+  "dependencies": {
+    "cli": "^0.6.4",
+    "diacritical": "^0.1.0",
+    "jquery-dom": "0.0.1",
+    "jsdom": "^1.0.0",
+    "q": "^1.0.1",
+    "request": "^2.44.0"
+  }
+}
