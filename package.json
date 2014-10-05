@@ -9,11 +9,11 @@
   "author": "Chad Jones <chadananda@gmail.com> (http://bahai-education.org/)",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^0.17.0",
     "cli": "^0.6.4",
     "diacritical": "^0.1.0",
-    "jquery-dom": "0.0.1",
-    "jsdom": "^1.0.0",
     "q": "^1.0.1",
-    "request": "^2.44.0"
+    "q-io": "^1.11.5",
+    "numeral": "~1.5.3"
   }
 }
