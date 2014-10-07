@@ -228,16 +228,23 @@ function parseId(token){
   // like acronymn_language-section-p#  or  acronymn_language-p#
   var result = false,
       data = token.split('-');
-  if (data.slice(-1).pop().charAt(0)==='p' && (data.length>1 && data.length<4)) {
+  if (data.slice(-1).pop().charAt(0)==='p' && (data.length>1 && data.length<5)) {
     if (typeof BOOK_TITLES[data[0].split('_')[0]] === 'undefined') {
       cli.error('No book tile found for acronymn: '+ data[0].split('_')[0]);
-    } else return {
+    } else {
+      var parnum;
+      if (data.length === 2) parnum = data[1].substring(1);
+      else if (data.length === 3) parnum = data[1]+'.'+data[2].substring(1);
+      else if (data.length === 4) parnum = data[1]+'.'+data[2]+'.'+data[3].substring(1);
+
+      return {
         'id': token,
         'acronymn': data[0].split('_')[0],
         'language': data[0].split('_')[1],
         'title': BOOK_TITLES[data[0].split('_')[0]],
-        'parnum': (data.length === 2) ? data[1].substring(1) : data[1]+'.'+data[2].substring(1)
-    };
+        'parnum': parnum
+      };
+    }
   }
   return result;
 }
