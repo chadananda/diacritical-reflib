@@ -1,6 +1,6 @@
 {
   "name": "diacritical-reflib",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Ad hoc tool to build a correction report for the entire reference library",
   "main": "app.js",
   "scripts": {

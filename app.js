@@ -141,6 +141,7 @@ function processBook(filename, fileData, dictionary) {
     if (parInfo && parInfo.parnum) {
       parText = $(par).text();
       parInfo.wordcount = parText.split(' ').length;
+      parInfo.beginning = parText.substring(0,50);
       diacritical.replaceText(parText, dictionary, 'showall', report);
       parInfo.report = report;
       if (report.unknownTotal || report.correctedTotal) {
@@ -152,6 +153,7 @@ function processBook(filename, fileData, dictionary) {
   }
 }
 
+
 function qAggregateReport(reportData) {
   var filename='', title ='', prevTitle ='', summary = '';
   var correctedTotal = 0, unknownTotal = 0;
@@ -162,6 +164,7 @@ function qAggregateReport(reportData) {
        '<style>\n  body{margin: 1em;}\n  h3{margin-left:1em;}\n  ol li{line-height:1.5em}'+
        '\n  ol.unknowns li{line-height:1.5em;}\n  p,ol{margin-left:3em; padding-left:0;}\n  .unkn i{color: #333;}  '+
        '\n  ol.unknowns{columns: 100px 4; -webkit-columns: 100px 4; -moz-columns: 100px 4;}' +
+       '\n  h3 i {font-size: smaller; color: #666; font-weight:normal;}' +
        '\n</style>\n</head>\n\n' +
        '<body> \n\n ';
   var report = {};
@@ -180,7 +183,7 @@ function qAggregateReport(reportData) {
         }
       }
       if (report.correctedTotal || hasUnknowns) {
-        html += '\n\n<h3> In paragraph '+parnum+' </h3>';
+        html += '\n\n<h3> In paragraph '+parnum+' - <i>('+reportData[title][parnum].beginning.trim()+'...)</i></h3>';
         if (report.correctedTotal) html += formatReplacements(report.replacements);
         if (hasUnknowns) {
           html += '\n<p class="unkn"> <i>Possibly incorrect:</i><b> ' +report.unknowns.join('</b>, <b>') +'</b></p>';
